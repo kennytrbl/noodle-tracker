@@ -62,11 +62,11 @@ export default function Home({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   if (!isConnected) {
     return (
-      <main className="flex flex-col justify-center items-center h-screen bg-black bg-opacity-50 text-white">
+      <main className="flex flex-col justify-center items-center min-h-screen bg-black bg-opacity-50 text-white p-4">
         <h1 className="text-center text-3xl font-bold mb-4">
           Could not connect to the database.
         </h1>
-        <footer className="absolute bottom-4 right-4 text-sm">
+        <footer className="text-sm absolute bottom-4 right-4 space-y-2">
           <div>
             Photo by{" "}
             <a
@@ -106,11 +106,11 @@ export default function Home({
 
   if (!entries || entries.length === 0) {
     return (
-      <main className="flex flex-col justify-center items-center h-screen bg-black bg-opacity-50 text-white">
+      <main className="flex flex-col justify-center items-center min-h-screen bg-black bg-opacity-50 text-white p-4">
         <h1 className="text-center text-3xl font-bold mb-4">
           No noodle entries found.
         </h1>
-        <footer className="absolute bottom-4 right-4 text-sm">
+        <footer className="text-sm absolute bottom-4 right-4 space-y-2">
           <div>
             Photo by{" "}
             <a
@@ -152,8 +152,8 @@ export default function Home({
   const daysSinceMostRecent = calculateDaysSince(mostRecentDate);
 
   return (
-    <main className="flex flex-col items-center h-screen bg-black bg-opacity-50 text-white relative">
-      <div>
+    <main className="flex flex-col items-center min-h-screen bg-black bg-opacity-50 text-white p-4 relative">
+      <div className="w-full max-w-4xl">
         <h1 className="text-4xl mt-6 text-center">Noodle Tracker</h1>
         <h2 className="text-2xl mb-6 text-center">
           It has been {daysSinceMostRecent} days since I have eaten noodles.
@@ -161,33 +161,37 @@ export default function Home({
         <table className="w-full border-collapse bg-white text-gray-900 shadow-md">
           <thead className="bg-gray-200">
             <tr>
-              <th className="py-2 px-4 border-b text-left">Date</th>
-              <th className="py-2 px-4 border-b text-left">Name</th>
-              <th className="py-2 px-4 border-b text-left">Location</th>
-              <th className="py-2 px-4 border-b text-left">Type</th>
-              <th className="py-2 px-4 border-b text-left">Rating</th>
-              <th className="py-2 px-4 border-b text-left">Price</th>
-              <th className="py-2 px-4 border-b text-left">Notes</th>
+              <th className="date py-2 px-4 border-b text-left">Date</th>
+              <th className="name py-2 px-4 border-b text-left">Name</th>
+              <th className="location py-2 px-4 border-b text-left">
+                Location
+              </th>
+              <th className="type py-2 px-4 border-b text-left">Type</th>
+              <th className="rating py-2 px-4 border-b text-left">Rating</th>
+              <th className="price py-2 px-4 border-b text-left">Price</th>
+              <th className="notes py-2 px-4 border-b text-left">Notes</th>
             </tr>
           </thead>
           <tbody>
             {entries.map((entry) => (
               <tr key={entry._id}>
-                <td className="py-2 px-4 border-b">
+                <td className="date py-2 px-4 border-b">
                   {entry.date.replace("T00:00:00.000Z", "")}
                 </td>
-                <td className="py-2 px-4 border-b">{entry.name}</td>
-                <td className="py-2 px-4 border-b">{entry.location}</td>
-                <td className="py-2 px-4 border-b">{entry.type}</td>
-                <td className="py-2 px-4 border-b">{entry.rating}</td>
-                <td className="py-2 px-4 border-b">{entry.price}</td>
-                <td className="py-2 px-4 border-b">{entry.notes}</td>
+                <td className="name py-2 px-4 border-b">{entry.name}</td>
+                <td className="location py-2 px-4 border-b">
+                  {entry.location}
+                </td>
+                <td className="type py-2 px-4 border-b">{entry.type}</td>
+                <td className="rating py-2 px-4 border-b">{entry.rating}</td>
+                <td className="price py-2 px-4 border-b">{entry.price}</td>
+                <td className="notes py-2 px-4 border-b">{entry.notes}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <footer className="absolute bottom-4 right-4 text-sm">
+      <footer className="text-sm absolute bottom-4 right-4 space-y-2">
         <div>
           Photo by{" "}
           <a

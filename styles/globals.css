@@ -10,3 +10,24 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
+
+@media screen and (max-width: 430px) {
+  .date,
+  .name,
+  .type,
+  .rating {
+    font-size: 0.8rem;
+  }
+
+  .location,
+  .notes,
+  .price {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .date {
+    display: none;
+  }
+}
