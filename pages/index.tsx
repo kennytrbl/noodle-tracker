@@ -155,7 +155,7 @@ export default function Home({
     <main className="flex flex-col items-center min-h-screen bg-black bg-opacity-50 text-white p-4 relative">
       <div className="w-full max-w-4xl">
         <h1 className="text-4xl mt-6 text-center">Noodle Tracker</h1>
-        <h2 className="text-2xl mb-6 text-center">
+        <h2 className="text-2xl mt-3 mb-6 text-center">
           It has been {daysSinceMostRecent} days since I have eaten noodles.
         </h2>
         <table className="w-full border-collapse bg-white text-gray-900 shadow-md">
