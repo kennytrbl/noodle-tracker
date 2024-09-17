@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps<
     const client = await clientPromise;
     const db = client.db("personal");
     const entries = await db
-      .collection("pho-tracker")
+      .collection("noodle-tracker")
       .find({})
       .sort({ date: -1 })
       .limit(20)
