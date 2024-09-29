@@ -142,7 +142,7 @@ export default function Home({
   }
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-black bg-opacity-50 text-white p-4 relative">
+    <main className="flex flex-col items-center min-h-screen bg-black bg-opacity-50 text-white p-4 pb-40 relative">
       <div className="w-full max-w-4xl">
         <h1 className="text-4xl mt-6 mb-6 text-center">Noodle Tracker</h1>
         <table className="w-full border-collapse bg-white text-gray-900 shadow-md">
